@@ -1,7 +1,9 @@
 extends Node
 
+var tile_scene = load("res://src/tiles/NeonLevel_1.tscn")
+
 const TILE_SIZE = 20
-const LEVEL_LENGHT = 7
+const LEVEL_LENGHT = 10
 const LEVEL_WIDTH = 1
 
 var tileX = -1
@@ -30,7 +32,6 @@ func spawn_tiles():
 	var x = int(floor(get_parent().get_node("Player").get_translation().x))
 	var z = int(floor(get_parent().get_node("Player").get_translation().z))
 	var y = int(floor(get_parent().get_node("Player").get_translation().y))
-	var tile_scene = load("res://src/tiles/NeonLevel_1.tscn")
 	var new_coordinates = coordinates()
 	print(new_coordinates)
 	
