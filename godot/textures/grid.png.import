@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/grid.png-aa6ab1fd1f97e22f02b564754520af6c.image"
+
+[deps]
+
+source_file="res://textures/grid.png"
+dest_files=[ "res://.import/grid.png-aa6ab1fd1f97e22f02b564754520af6c.image" ]
+
+[params]
+

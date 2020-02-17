@@ -2,7 +2,7 @@ extends Node
 
 const TILE_SIZE = 20
 const LEVEL_LENGHT = 7
-const LEVEL_WIDTH = 5
+const LEVEL_WIDTH = 1
 
 var tileX = -1
 var tileZ = -1
@@ -42,6 +42,6 @@ func spawn_tiles():
 				var offsetX = x + TILE_SIZE/2 + i * TILE_SIZE
 				var offsetZ = z + TILE_SIZE * (n - floor(LEVEL_WIDTH/2))
 				
-				new_tile.set_translation(Vector3(offsetX, 0, offsetZ))
+				new_tile.set_translation(Vector3(offsetX, 0, 0))
 				new_tile.set_name("tile")
 				self.get_parent().call_deferred("add_child", new_tile)

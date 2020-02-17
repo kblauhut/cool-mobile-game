@@ -9,17 +9,20 @@
 radius = 0.5
 height = 0.291171
 
-[sub_resource type="PanoramaSky" id=3]
+[sub_resource type="PanoramaSky" id=2]
 panorama = ExtResource( 4 )
 
-[sub_resource type="Environment" id=2]
+[sub_resource type="Environment" id=3]
 background_mode = 2
-background_sky = SubResource( 3 )
+background_sky = SubResource( 2 )
 background_sky_custom_fov = 119.7
 background_color = Color( 0.67451, 0.509804, 1, 1 )
-fog_enabled = true
 fog_color = Color( 0.713726, 0.32549, 0.72549, 1 )
 fog_sun_color = Color( 1, 0.901961, 0.701961, 1 )
+fog_transmit_curve = 0.68302
+dof_blur_far_distance = 34.82
+dof_blur_far_transition = 12.15
+dof_blur_far_amount = 0.08
 
 [node name="Level" type="Spatial"]
 script = ExtResource( 1 )
@@ -42,4 +45,4 @@ transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0.55
 shape = SubResource( 1 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 2 )
+environment = SubResource( 3 )
