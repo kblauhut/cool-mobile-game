@@ -4,7 +4,7 @@ var velocity = Vector3()
 
 var gravity = -9.8 * 5
 
-const MAX_VELOCITY = 20
+const MAX_VELOCITY = 10
 const ACCEL = 3
 const STRAFE_SPEED = 5
 const STRAFE_ACCEL = 2
