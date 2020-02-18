@@ -13,7 +13,6 @@ height = 0.291171
 panorama = ExtResource( 4 )
 
 [sub_resource type="Environment" id=3]
-background_mode = 2
 background_sky = SubResource( 2 )
 background_sky_custom_fov = 119.7
 background_color = Color( 0.67451, 0.509804, 1, 1 )
@@ -23,6 +22,9 @@ fog_transmit_curve = 0.68302
 dof_blur_far_distance = 6.25
 dof_blur_far_transition = 5.93
 dof_blur_far_amount = 0.06
+glow_enabled = true
+glow_strength = 0.7
+glow_blend_mode = 1
 
 [node name="Level" type="Spatial"]
 script = ExtResource( 1 )
@@ -38,7 +40,7 @@ script = ExtResource( 2 )
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, -2.88624, 2.57851, 0 )
 
 [node name="Camera" type="Camera" parent="Player/Head"]
-transform = Transform( 2.65431e-14, 1.62921e-07, -1, 1, -1.62921e-07, -1.50772e-19, -1.62921e-07, -1, -1.62921e-07, 2.96227, 0, 0 )
+transform = Transform( 2.65431e-14, 1.62921e-07, -1, 1, -1.62921e-07, -1.50772e-19, -1.62921e-07, -1, -1.62921e-07, 2.96227, 1.64688e-07, 1.01085 )
 
 [node name="Body" type="CollisionShape" parent="Player"]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0.557735, 0 )
