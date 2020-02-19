@@ -38,6 +38,7 @@ move_right={
 
 [rendering]
 
+quality/filters/anisotropic_filter_level=8
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
 environment/default_environment="res://default_env.tres"
