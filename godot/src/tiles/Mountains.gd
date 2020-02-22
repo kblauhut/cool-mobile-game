@@ -1,20 +1,19 @@
 extends Spatial
 
-const terrain_scale = 50
+const TERRAIN_SCALE = 20
+const DISTANCE = 20
 
 var noise
+var x
 
 func _ready():
-	randomize()
-	noise = OpenSimplexNoise.new()
-	noise.seed = randi()
-	noise.octaves = 7
-	noise.period = 50
-	generate_mountains(12,21)
+	noise = get_parent().noise
+	x = get_parent().x
+	generate_mountains()
 
-func generate_mountains(x, z):
+func generate_mountains():
 	var parent_position = get_parent().translation
-	var mountain = Mountain.new(terrain_scale, noise, 10, 10)
+	var mountain = Mountain.new(TERRAIN_SCALE, noise, x * TERRAIN_SCALE, 5)
 	mountain.translation = Vector3(parent_position.x, parent_position.y, parent_position.z -30)
 	print("generated@" + str(parent_position.x))
-	add_child(mountain)
+	self.get_parent().call_deferred("add_child", mountain)

@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Spatial",
 "class": "Mountain",
 "language": "GDScript",
-"path": "res://src/tiles/Mountain.gd"
+"path": "res://src/tiles/props/Mountain.gd"
 } ]
 _global_script_class_icons={
 "Mountain": ""
