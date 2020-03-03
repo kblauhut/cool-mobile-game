@@ -1,7 +1,7 @@
 extends Spatial
 
-const TERRAIN_SCALE = 20
-const DISTANCE = 20
+const TERRAIN_SCALE = 40
+const DISTANCE = 10
 
 var noise
 var x
@@ -13,7 +13,6 @@ func _ready():
 
 func generate_mountains():
 	var parent_position = get_parent().translation
-	var mountain = Mountain.new(TERRAIN_SCALE, noise, x * TERRAIN_SCALE, 5)
-	mountain.translation = Vector3(parent_position.x, parent_position.y, parent_position.z -30)
-	print("generated@" + str(parent_position.x))
+	var mountain = Mountain.new(TERRAIN_SCALE, noise, x, 5)
+	mountain.translation = Vector3(0, 0, -40)
 	self.get_parent().call_deferred("add_child", mountain)

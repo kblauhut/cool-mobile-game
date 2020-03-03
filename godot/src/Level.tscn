@@ -31,14 +31,14 @@ glow_blend_mode = 1
 script = ExtResource( 3 )
 
 [node name="Player" type="KinematicBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.9827, 0 )
 script = ExtResource( 2 )
 
 [node name="Head" type="Spatial" parent="Player"]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, -2.88624, 2.57851, 0 )
 
 [node name="Camera" type="Camera" parent="Player/Head"]
-transform = Transform( 2.65431e-14, 1.62921e-07, -1, 1, -1.62921e-07, -1.50772e-19, -1.62921e-07, -1, -1.62921e-07, 2.96227, 1.64688e-07, 1.01085 )
+transform = Transform( 2.65431e-14, 1.62921e-07, -1, 1, -1.62921e-07, 0, -1.62921e-07, -1, -1.62921e-07, 2.96227, 1.64689e-07, 1.01085 )
 
 [node name="Body" type="CollisionShape" parent="Player"]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0.557735, 0 )

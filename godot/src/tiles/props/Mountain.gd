@@ -2,7 +2,7 @@ extends Spatial
 class_name Mountain
 
 const SUBDIV_MULTIPLIER = 0.3
-const HEIGHT_MULTIPLIER = 50
+const HEIGHT_MULTIPLIER = 120
 
 var mesh_instance
 var terrain_scale

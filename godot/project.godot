@@ -24,10 +24,6 @@ config/name="cool-mobile-game"
 run/main_scene="res://src/Level.tscn"
 config/icon="res://icon.png"
 
-[debug]
-
-settings/stdout/print_fps=true
-
 [input]
 
 move_left={
