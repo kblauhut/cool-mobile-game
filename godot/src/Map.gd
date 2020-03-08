@@ -3,7 +3,7 @@ extends Node
 var tile_scene = load("res://src/tiles/NeonLevel_1.tscn")
 
 const TILE_SIZE = 20
-const LEVEL_LENGHT = 3
+const LEVEL_LENGHT = 6
 
 var tileX = -1
 var tileZ = -1
@@ -42,7 +42,7 @@ func spawn_tiles():
 			var offsetX = x + TILE_SIZE/2 + i * TILE_SIZE
 			new_tile.set_translation(Vector3(offsetX, 0, 0))
 			new_tile.set_name("tile")
-			new_tile.init(noise, x)
+			new_tile.init(noise, offsetX)
 			self.get_parent().call_deferred("add_child", new_tile)
 
 func spawn_new_tile():
@@ -55,5 +55,5 @@ func spawn_new_tile():
 		var offsetX = x + TILE_SIZE/2 + (LEVEL_LENGHT - 1) * TILE_SIZE
 		new_tile.set_translation(Vector3(offsetX, 0, 0))
 		new_tile.set_name("tile")
-		new_tile.init(noise, tileX)
+		new_tile.init(noise, offsetX)
 		self.get_parent().call_deferred("add_child", new_tile)

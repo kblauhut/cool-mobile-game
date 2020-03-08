@@ -1,8 +1,8 @@
 extends Spatial
 class_name Mountain
 
-const SUBDIV_MULTIPLIER = 0.3
-const HEIGHT_MULTIPLIER = 120
+const SUBDIV_MULTIPLIER = 0.4
+const HEIGHT_MULTIPLIER = 60
 
 var mesh_instance
 var terrain_scale
@@ -22,7 +22,7 @@ func _ready():
 	
 func generate_terrain():
 	var plane_mesh = PlaneMesh.new()
-	plane_mesh.size = Vector2(terrain_scale, terrain_scale)
+	plane_mesh.size = Vector2(terrain_scale, terrain_scale*2)
 	plane_mesh.subdivide_depth = terrain_scale * SUBDIV_MULTIPLIER
 	plane_mesh.subdivide_width = terrain_scale * SUBDIV_MULTIPLIER
 	
@@ -31,11 +31,15 @@ func generate_terrain():
 	surface_tool.create_from(plane_mesh, 0)
 	var plane_array = surface_tool.commit()
 	mesh_data_tool.create_from_surface(plane_array, 0)
-	
+		
 	for i in range(mesh_data_tool.get_vertex_count()):
 		var vertex = mesh_data_tool.get_vertex(i)
+		var gradient = HEIGHT_MULTIPLIER * (1 - (vertex.z / terrain_scale))
+		vertex.y = noise.get_noise_3d(vertex.x + x, vertex.y, vertex.z + z) * gradient
+		vertex.y = abs(vertex.y)
 		
-		vertex.y = noise.get_noise_3d(vertex.x + x, vertex.y, vertex.z + z) * HEIGHT_MULTIPLIER
+		if(vertex.z == terrain_scale):
+			vertex.y = 0
 		
 		mesh_data_tool.set_vertex(i, vertex)
 		
