@@ -1,7 +1,7 @@
 extends Spatial
 class_name Mountain
 
-const SUBDIV_MULTIPLIER = 0.4
+const SUBDIV_MULTIPLIER = 0.3
 const HEIGHT_MULTIPLIER = 60
 
 var mesh_instance
@@ -9,12 +9,14 @@ var terrain_scale
 var noise
 var x
 var z
+var isRotated
 
-func _init(terrain_scale, noise, x, z):
+func _init(terrain_scale, noise, x, z, isRotated):
 	self.terrain_scale = terrain_scale
 	self.noise = noise
 	self.x = x
 	self.z = z
+	self.isRotated = isRotated
 
 func _ready():
 	generate_terrain()
@@ -35,11 +37,9 @@ func generate_terrain():
 	for i in range(mesh_data_tool.get_vertex_count()):
 		var vertex = mesh_data_tool.get_vertex(i)
 		var gradient = HEIGHT_MULTIPLIER * (1 - (vertex.z / terrain_scale))
+		if isRotated: gradient = HEIGHT_MULTIPLIER * (1 + (vertex.z / terrain_scale))
 		vertex.y = noise.get_noise_3d(vertex.x + x, vertex.y, vertex.z + z) * gradient
 		vertex.y = abs(vertex.y)
-		
-		if(vertex.z == terrain_scale):
-			vertex.y = 0
 		
 		mesh_data_tool.set_vertex(i, vertex)
 		
